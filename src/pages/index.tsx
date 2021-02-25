@@ -13,11 +13,11 @@ import Modal from '../components/Modal';
 import { CountdownProvider } from '../contexts/CountdownContext';
 
 export default function Home() {
-  const { closeModal } = useContext(ChallengesContext);
+  const { modalOpen } = useContext(ChallengesContext);
 
   return (
     <>
-      {closeModal && <Modal />}
+      {modalOpen && <Modal />}
       <div className={styles.container}>
         <Head>
           <title>Move it</title>

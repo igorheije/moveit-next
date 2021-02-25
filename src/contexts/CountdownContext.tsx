@@ -35,12 +35,14 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
   function startCountdown() {
     setIsActive(true);
   }
+
   function resetCountdown() {
     setIsActive(false);
     clearTimeout(countdownTimeout);
     setTime(0.05 * 60);
     setHasFinished(false);
   }
+
   useEffect(() => {
     if (isActive && time > 0) {
       countdownTimeout = setTimeout(() => {

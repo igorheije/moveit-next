@@ -2,9 +2,10 @@
   width: 100vw;
   height: 100%;
 
-  opacity: 1;
   position: absolute;
   z-index: 100;
+
+  background: rgba(0, 0, 0, 0.8);
 }
 
 .modal {
@@ -22,6 +23,17 @@
   justify-content: center;
 
   box-shadow: 0 0 60px rgba(0, 0, 0, 0.2);
+
+  animation: fade 1s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .modalImage {

@@ -8,9 +8,6 @@ const ExperienceBar = () => {
     ChallengesContext,
   );
   useEffect(() => {
-    console.log(currentExperience);
-    console.log('p', porcentToNextLevel);
-
     setPorcentToNextLevel(
       Math.floor(currentExperience * 100) / experienceToNextLevel,
     );

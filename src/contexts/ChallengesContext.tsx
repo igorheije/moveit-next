@@ -15,29 +15,29 @@ interface Challenge {
 interface CHallengesContextData {
   level: number;
   currentExperience: number;
-  activeChallenge: Challenge;
   challengeCompleted: number;
-  startNewChallenge: () => void;
-  resetChallenge: () => void;
-  completedChallenge: () => void;
   experienceToNextLevel: number;
-  setCloseModal: React.ComponentState;
+  modalOpen: boolean;
+  activeChallenge: Challenge;
   setLevel: React.ComponentState;
+  setModalOpen: React.ComponentState;
   setCurrentExperience: React.ComponentState;
   setChallengeCompleted: React.ComponentState;
-  closeModal: boolean;
   levelUp: () => void;
+  resetChallenge: () => void;
+  startNewChallenge: () => void;
+  completedChallenge: () => void;
 }
 
 export const ChallengesContext = createContext({} as CHallengesContextData);
 
 export const ChallengeProvider = ({ children }: CHallengesProviderProps) => {
   const [level, setLevel] = useState<number>(1);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [activeChallenge, setActiveChallenge] = useState(null);
   const [currentExperience, setCurrentExperience] = useState(0);
   const [challengeCompleted, setChallengeCompleted] = useState(0);
 
-  const [activeChallenge, setActiveChallenge] = useState(null);
-  const [closeModal, setCloseModal] = useState(false);
   const experienceToNextLevel = Math.pow((level + 1) * 4, 2);
 
   useEffect(() => {
@@ -65,15 +65,17 @@ export const ChallengeProvider = ({ children }: CHallengesProviderProps) => {
   function resetChallenge() {
     setActiveChallenge(null);
   }
+
   function completedChallenge() {
     if (!activeChallenge) return;
 
     const { amount } = activeChallenge;
     let finalExperience = currentExperience + amount;
 
-    if (experienceToNextLevel < finalExperience) {
+    if (finalExperience >= experienceToNextLevel) {
+      finalExperience = finalExperience - experienceToNextLevel;
       levelUp();
-      setCloseModal(true);
+      setModalOpen(true);
       setCurrentExperience(finalExperience - experienceToNextLevel);
     }
 
@@ -94,8 +96,8 @@ export const ChallengeProvider = ({ children }: CHallengesProviderProps) => {
         experienceToNextLevel,
         startNewChallenge,
         resetChallenge,
-        closeModal,
-        setCloseModal,
+        modalOpen,
+        setModalOpen,
         levelUp,
         setChallengeCompleted,
         setCurrentExperience,

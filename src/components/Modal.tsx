@@ -4,12 +4,12 @@ import { ChallengesContext } from '../contexts/ChallengesContext';
 import styles from '../styles/components/Modal.module.css';
 
 const Modal = () => {
-  const { level, setCloseModal } = useContext(ChallengesContext);
+  const { level, setModalOpen } = useContext(ChallengesContext);
 
   return (
     <div className={styles.modalContainer}>
       <div className={styles.modal}>
-        <button className={styles.close} onClick={() => setCloseModal(false)}>
+        <button className={styles.close} onClick={() => setModalOpen(false)}>
           <img src="icons/close.svg" alt="close" />
         </button>
         <div className={styles.modalImage}>
