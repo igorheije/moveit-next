@@ -1,0 +1,83 @@
+.modalContainer {
+  width: 100vw;
+  height: 100%;
+
+  opacity: 1;
+  position: absolute;
+  z-index: 100;
+}
+
+.modal {
+  height: 300px;
+  width: 300px;
+
+  background-color: var(--white);
+  opacity: 1;
+  margin: 200px auto;
+  border-radius: 5px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.2);
+}
+
+.modalImage {
+  text-align: center;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.modalParabens {
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  margin: 10px 0 20px;
+}
+.modal > div span {
+  position: absolute;
+  font-size: 7rem;
+  font-weight: 600;
+
+  color: var(--blue);
+}
+.modal > div img {
+  position: absolute;
+}
+.buttonTwitter {
+  height: 70px;
+  width: 100%;
+
+  background: var(--blue-twitter);
+  color: var(--white);
+
+  border: 0;
+  border-radius: 5px;
+
+  text-align: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.buttonTwitter img {
+  margin-left: 10px;
+}
+
+.close {
+  align-self: flex-end;
+
+  background: transparent;
+  border: 0;
+  outline: none;
+}
