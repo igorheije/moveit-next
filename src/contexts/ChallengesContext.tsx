@@ -22,6 +22,9 @@ interface CHallengesContextData {
   completedChallenge: () => void;
   experienceToNextLevel: number;
   setCloseModal: React.ComponentState;
+  setLevel: React.ComponentState;
+  setCurrentExperience: React.ComponentState;
+  setChallengeCompleted: React.ComponentState;
   closeModal: boolean;
   levelUp: () => void;
 }
@@ -87,15 +90,15 @@ export const ChallengeProvider = ({ children }: CHallengesProviderProps) => {
         activeChallenge,
         completedChallenge,
         currentExperience,
-        setCurrentExperience,
         challengeCompleted,
         experienceToNextLevel,
-        setChallengeCompleted,
         startNewChallenge,
         resetChallenge,
         closeModal,
         setCloseModal,
         levelUp,
+        setChallengeCompleted,
+        setCurrentExperience,
       }}
     >
       {children}
