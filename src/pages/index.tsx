@@ -10,6 +10,7 @@ import Head from 'next/head';
 import styles from '../styles/pages/Home.module.css';
 import Challenge from '../components/Challenge';
 import Modal from '../components/Modal';
+import { CountdownProvider } from '../contexts/CountdownContext';
 
 export default function Home() {
   const { closeModal } = useContext(ChallengesContext);
@@ -22,16 +23,18 @@ export default function Home() {
           <title>Move it</title>
         </Head>
         <ExperienceBar />
-        <section>
-          <div>
-            <Profile />
-            <CompletedChallenges />
-            <Countdown />
-          </div>
-          <div>
-            <Challenge />
-          </div>
-        </section>
+        <CountdownProvider>
+          <section>
+            <div>
+              <Profile />
+              <CompletedChallenges />
+              <Countdown />
+            </div>
+            <div>
+              <Challenge />
+            </div>
+          </section>
+        </CountdownProvider>
       </div>
     </>
   );
