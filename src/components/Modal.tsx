@@ -9,17 +9,12 @@ const Modal = () => {
   return (
     <div className={styles.modalContainer}>
       <div className={styles.modal}>
+        <header>{level}</header>
         <button className={styles.close} onClick={() => setModalOpen(false)}>
           <img src="icons/close.svg" alt="close" />
         </button>
-        <div className={styles.modalImage}>
-          <img src="icons/levelup.svg" alt="level Up" />
-          <span>{level}</span>
-        </div>
-        <div className={styles.modalParabens}>
-          <h1>Parabéns</h1>
-          <p>Você alcançou um novo level</p>
-        </div>
+        <strong>Parabéns</strong>
+        <p>Você alcançou um novo level</p>
         <button className={styles.buttonTwitter}>
           Compartilhar <img src="icons/twitter.svg" alt="Twitter" />
         </button>

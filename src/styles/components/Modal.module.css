@@ -1,20 +1,27 @@
 .modalContainer {
-  width: 100vw;
-  height: 100%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
 
-  position: absolute;
-  z-index: 100;
-
+  position: fixed;
   background: rgba(0, 0, 0, 0.8);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 100;
 }
 
 .modal {
-  height: 300px;
-  width: 300px;
+  width: 100%;
+  max-width: 400px;
 
   background-color: var(--white);
-  opacity: 1;
-  margin: 200px auto;
+
+  position: relative;
+
   border-radius: 5px;
   padding: 25px;
   display: flex;
@@ -35,40 +42,28 @@
     opacity: 1;
   }
 }
-
-.modalImage {
-  text-align: center;
-  position: relative;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-.modalParabens {
-  text-align: center;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-
-  margin: 10px 0 20px;
-}
-.modal > div span {
-  position: absolute;
-  font-size: 7rem;
+.modal header {
+  font-size: 8.75rem;
   font-weight: 600;
-
   color: var(--blue);
+  background: url('/icons/levelup.svg') no-repeat center;
+  background-size: contain;
 }
-.modal > div img {
-  position: absolute;
+.modal strong {
+  font-size: 2.25rem;
+  color: var(--title);
 }
+.modal p {
+  font-size: 1.25rem;
+  color: var(--text);
+  margin-top: 0.25rem;
+}
+
 .buttonTwitter {
-  height: 70px;
+  height: 50px;
   width: 100%;
+
+  margin-top: 1.25rem;
 
   background: var(--blue-twitter);
   color: var(--white);
@@ -87,7 +82,10 @@
 }
 
 .close {
-  align-self: flex-end;
+  position: absolute;
+
+  right: 0.5rem;
+  top: 0.5rem;
 
   background: transparent;
   border: 0;
