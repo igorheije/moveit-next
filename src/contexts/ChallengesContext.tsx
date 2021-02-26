@@ -52,9 +52,9 @@ export const ChallengeProvider = ({
 
   const experienceToNextLevel = Math.pow((level + 1) * 4, 2);
 
-  useEffect(() => {
-    Notification.requestPermission();
-  }, []);
+  // useEffect(() => {
+  //   Notification.requestPermission();
+  // }, []);
 
   useEffect(() => {
     Cookies.set('level', String(level));
@@ -72,13 +72,13 @@ export const ChallengeProvider = ({
     const challenge = challenges[challengesIndex];
     setActiveChallenge(challenge);
 
-    new Audio('/notification.mp3').play();
+    // new Audio('/notification.mp3').play();
 
-    if (Notification.permission === 'granted') {
-      new Notification('Novo desafio ', {
-        body: `Valendo ${challenge.amount} xp`,
-      });
-    }
+    // if (Notification.permission === 'granted') {
+    //   new Notification('Novo desafio ', {
+    //     body: `Valendo ${challenge.amount} xp`,
+    //   });
+    // }
   }
 
   function resetChallenge() {
